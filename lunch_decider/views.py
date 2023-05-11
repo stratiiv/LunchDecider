@@ -1,11 +1,15 @@
-from rest_framework import generics
-from .models import Restaurant, Menu, Employee, Vote
+from rest_framework import generics, status
+from rest_framework.response import Response
+from .models import Restaurant, Menu, Vote
 from .serializers import RestaurantSerializer, MenuSerializer, EmployeeSerializer, VoteSerializer
 from datetime import date
+from rest_framework.permissions import IsAdminUser, IsAuthenticated
+from rest_framework_simplejwt.tokens import RefreshToken
+from django.contrib.auth import get_user_model
 
 
 class EmployeeCreateView(generics.CreateAPIView):
-    queryset = Employee.objects.all()
+    queryset = get_user_model().objects.all()
     serializer_class = EmployeeSerializer
 
 
@@ -31,3 +35,4 @@ class CurrentDayMenuView(generics.RetrieveAPIView):
         current_date = date.today()
         return Menu.objects.filter(date=current_date).first()
  
+

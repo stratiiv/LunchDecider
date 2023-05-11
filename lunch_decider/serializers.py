@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from lunch_decider.models import Menu, Restaurant, Employee, Vote
+from lunch_decider.models import Menu, Restaurant, Vote
+from django.contrib.auth import get_user_model
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
@@ -16,7 +17,7 @@ class MenuSerializer(serializers.ModelSerializer):
 
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Employee
+        model = get_user_model()
         fields = '__all__'
 
 
