@@ -25,3 +25,9 @@ class VoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vote
         fields = '__all__'
+
+
+class VoteResultSerializer(serializers.Serializer):
+    restaurant_name = serializers.CharField(source='menu__restaurant__name')
+    vote_count = serializers.IntegerField(source='count')
+    menu_items = serializers.CharField(source='menu__items')
