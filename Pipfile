@@ -8,7 +8,7 @@ django = "*"
 djangorestframework = "*"
 flake8 = "*"
 djangorestframework-simplejwt = "*"
-pytest = "*"
+pytest-django = "*"
 
 [dev-packages]
 
