@@ -9,6 +9,7 @@ djangorestframework = "*"
 flake8 = "*"
 djangorestframework-simplejwt = "*"
 pytest-django = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
